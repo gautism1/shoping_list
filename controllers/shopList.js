@@ -10,10 +10,10 @@ router.use(bodyParser.urlencoded({
  exports.quotesinput =async(req,res,next)=>
  {  
      try{
-         if(req.body.product_name && req.body.admin_id && req.body.price )
+         if(req.body.product_name && req.body.price )
          {
-            if(req.body.admin_id=="admin123")
-            {                        
+            
+                                 
                newItem =new shopList(
                    {
                     product_name: req.body.product_name,
@@ -24,7 +24,7 @@ router.use(bodyParser.urlencoded({
                     price:req.body.price,
                     category:req.body.category,
                     sku:req.body.sku,
-                    reviews:req.body.reviews,
+                    total_reviews:req.body.total_reviews,
                     date:new Date()
                      
                    }
@@ -32,11 +32,8 @@ router.use(bodyParser.urlencoded({
                  newItem.save();
                  res.json(newItem);
                  console.log("successfully done",newItem)
-            }
-            else
-            {           
-                 res.json("wrong passkey lease use valid key")
-            }
+            
+           
          }
          else
          {     
