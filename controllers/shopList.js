@@ -1,4 +1,4 @@
-let quotes=require('../models/quotes');
+let shopList=require('../models/shopList');
 const bodyParser = require('body-parser');
 const express=require('express');
 const router=express.Router();
@@ -14,7 +14,7 @@ router.use(bodyParser.urlencoded({
          {
             if(req.body.admin_id=="admin123")
             {                        
-               newquote =new quotes(
+               newItem =new shopList(
                    {
                     product_name: req.body.product_name,
                     total_bought:req.body.total_bought,
@@ -24,13 +24,14 @@ router.use(bodyParser.urlencoded({
                     price:req.body.price,
                     category:req.body.category,
                     sku:req.body.sku,
-                    date:Date.now
+                    reviews:req.body.reviews,
+                    date:new Date()
                      
                    }
                );
-                 newquote.save();
-                 res.json(newquote);
-                 console.log("successfully done",newquote)
+                 newItem.save();
+                 res.json(newItem);
+                 console.log("successfully done",newItem)
             }
             else
             {           
@@ -49,11 +50,12 @@ router.use(bodyParser.urlencoded({
        
      }
  }
+ 
 
  exports.deletequote =async (req,res,next)=>
  {   try
     {
-    await quotes.findById(req.params.id).then((data)=>
+    await shopList.findById(req.params.id).then((data)=>
      {
          if(data)
         { data.delete((data)=>
@@ -81,13 +83,11 @@ router.use(bodyParser.urlencoded({
  exports.getquote=async (req,res,next)=>
  {
      try{
-
-     quotes.find().then((data)=>
+        shopList.find().then((data)=>
      {
          res.status(200).json(data);
          data.map((data1,index)=>
          {
-            // let days=Math.trunc(((new Date())-data1.date)/(60*60*24*365));
         console.log("quotes",data1);
          })       
      }).catch((err)=>

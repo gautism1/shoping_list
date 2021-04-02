@@ -1,8 +1,8 @@
 const quotes = require('express').Router({ mergeParams: true });
  
-const {quotesinput} = require('../controllers/quotes.js');
-const {deletequote} = require('../controllers/quotes.js');
-const {getquote} = require('../controllers/quotes.js');
+const {quotesinput} = require('../controllers/shopList.js');
+const {deletequote} = require('../controllers/shopList.js');
+const {getquote} = require('../controllers/shopList.js');
 
 quotes.post('/', quotesinput);
 quotes.get('/',getquote);

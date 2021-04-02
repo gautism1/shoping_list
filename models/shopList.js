@@ -1,6 +1,7 @@
 const mongoose=require('mongoose')
 const adminschema= new mongoose.Schema(
     {
+        admin_id:String,
         product_name:String,
         total_reviews:String,        
         total_bought:Number,
@@ -10,6 +11,7 @@ const adminschema= new mongoose.Schema(
         price:Number,
         category:String,
         sku:String,
+        reviews:String,
         date:{
               type:Date,
               default:Date.now

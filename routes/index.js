@@ -1,8 +1,8 @@
 const routes = require('express').Router({ mergeParams: true });
-const quotes = require('./quotes.js');
+const shopList = require('./shopList.js');
   
 let jwt = require('jsonwebtoken');
  
-routes.use('/quotes', quotes)
+routes.use('/shopList', shopList)
  
 module.exports = routes;
