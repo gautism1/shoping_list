@@ -1,12 +1,12 @@
 const quotes = require('express').Router({ mergeParams: true });
  
-const {quotesinput} = require('../controllers/shopList.js');
-const {deletequote} = require('../controllers/shopList.js');
-const {getquote} = require('../controllers/shopList.js');
+const {productinput} = require('../controllers/shopList.js');
+const {deleteproducts} = require('../controllers/shopList.js');
+const {getproducts} = require('../controllers/shopList.js');
 
-quotes.post('/', quotesinput);
-quotes.get('/',getquote);
-quotes.delete('/:id',deletequote);
+quotes.post('/', productinput);
+quotes.get('/',getproducts);
+ 
 quotes.put('/', );
 
 
