@@ -72,7 +72,7 @@ router.use(bodyParser.urlencoded({
          res.status(200).json(data);
          data.map((data1,index)=>
          {
-        console.log("product's detials",data1);
+         console.log("data recieved")
          })       
      }).catch((err)=>
      {
