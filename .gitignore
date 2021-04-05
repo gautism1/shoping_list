@@ -14,7 +14,7 @@
 /build
 
 #/models
-/models
+models
 # misc
 .DS_Store
 .env.local

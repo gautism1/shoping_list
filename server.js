@@ -8,19 +8,21 @@ const routes = require('./routes')
 const app=express();
 let cors = require('cors');
 const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
 
 
 // middlewares
 app.use(cors());
 app.use(cookieParser())
 app.use(helmet());
-
  
-app.use(express.static('build'));
 
-app.get('/', (req, res) => {
-   res.send("something is here")
-});
+app.use(express.static(path.join(__dirname, "build")));
+
+app.get('/',function(req,res)
+{
+res.sendFile(path.join(__dirname,'build','index.html'))
+})
 
 
 app.use(function(req, res, next) {
@@ -36,10 +38,10 @@ const connectdb =require('./config/db');
 
 connectdb();
 
-app.use('/',
-(req,res,next)=>{
-  console.log("I am going to all routes from here ");next();
-},routes);
+  app.use('/',
+  (req,res,next)=>{
+    console.log("I am going to all routes from here ");next();
+  },routes);
 
 const port =process.env.PORT || 5000   ;
 app.listen(port,() => console.log(`running at port ${port}`))
