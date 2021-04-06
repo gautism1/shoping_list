@@ -9,14 +9,14 @@ router.use(bodyParser.urlencoded({
 
  exports.productinput =async(req,res,next)=>
  {  
-     try{                    
+     try{            console.log(req.body)        
                newItem =new shopList(
                    {
                     product_name: req.body.product_name, 
                     total_bought:req.body.total_bought,
                     rating: req.body.rating,
                     desciption:req.body.desciption,
-                    image_url:req.body.image_url,
+                    image_url:req.body.imageurl,
                     price:req.body.price,
                     category:req.body.category,
                     sku:req.body.sku,
@@ -36,34 +36,6 @@ router.use(bodyParser.urlencoded({
      }
  }
 
-//  exports.deleteproduct =async (req,res,next)=>
-//  {   try
-//     {
-//     await shopList.findById(req.params.id).then((data)=>
-//      {
-//          if(data)
-//         { data.delete((data)=>
-//          {
-//              res.status(201).json("deleted successfully");
-//          })
-//         }
-//         else {
-//             res.status(300).json("this id does not matched")
-//         }
-//      })
-//      .catch((err)=>
-//      {
-//          res.status(500).json("hello error")
-//          console.log("error happened",err);
-//      })   
-//     }
-//    catch(err)
-//    {
-//        console.log("error ho gai",err);
-//        res.status(500).json("error occured");
-//    }
-//  }
- 
  exports.getproducts=async (req,res,next)=>
  {
      try{
