@@ -1,4 +1,4 @@
-let shopList=require('../models/shopList');
+let shopList=require('../models/sellerlist');
 const bodyParser = require('body-parser');
 const express=require('express');
 const router=express.Router();
@@ -9,24 +9,23 @@ router.use(bodyParser.urlencoded({
 
  exports.productinput =async(req,res,next)=>
  {  
-     try{            console.log(req.body)        
+     try{                  
                newItem =new shopList(
                    {
-                    product_name: req.body.product_name, 
-                    total_bought:req.body.total_bought,
-                    rating: req.body.rating,
-                    desciption:req.body.desciption,
-                    image_url:req.body.imageurl,
+                    owner_name: req.body.owner_name, 
                     price:req.body.price,
-                    category:req.body.category,
-                    sku:req.body.sku,
-                    total_reviews:req.body.total_reviews,
+                    email: req.body.email,
+                    phone:req.body.phone,
+                    description:req.body.description,
+                    road_facing:req.body.road_facing,
+                    landmark:req.body.landmark,
+                    unique_id:req.body.unique_id,
                     date:new Date()                 
                    }
                );
                  newItem.save();
                  res.json(newItem);
-                 console.log("successfully done",newItem)
+               
         
      }
      catch(err)
