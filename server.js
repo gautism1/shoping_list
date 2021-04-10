@@ -3,6 +3,8 @@ const express=require('express');
 const path = require("path");
 const helmet = require("helmet");
 const morgan =require('morgan');
+const config =require('config');
+
 const routes = require('./routes')
 const app=express();
 let cors = require('cors');

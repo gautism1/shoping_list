@@ -1,4 +1,5 @@
-let shopList=require('../models/sellerlist');
+const shopList=require('../models/sellerlist');
+
 const bodyParser = require('body-parser');
 const express=require('express');
 const router=express.Router();
