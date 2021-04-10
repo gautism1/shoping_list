@@ -9,17 +9,21 @@ router.use(bodyParser.urlencoded({
 
  exports.productinput =async(req,res,next)=>
  {  
-     try{                  
+     try{                
+          
                newItem =new shopList(
                    {
-                    owner_name: req.body.owner_name, 
-                    price:req.body.price,
-                    email: req.body.email,
-                    phone:req.body.phone,
-                    description:req.body.description,
-                    road_facing:req.body.road_facing,
-                    landmark:req.body.landmark,
-                    unique_id:req.body.unique_id,
+                    owner_name: req.body.details.owner_name, 
+                    price:req.body.details.price,
+                    email: req.body.details.email,
+                    phone:req.body.details.phone,
+                    description:req.body.details.description,
+                    road_facing:req.body.details.road_facing,
+                    landmark:req.body.details.landmark,
+                    unique_id:req.body.details.unique_id,
+                    coordinates:
+                    {   longitude:req.body.coordinates.longitude,
+                        latitude:req.body.coordinates.latitude},
                     date:new Date()                 
                    }
                );

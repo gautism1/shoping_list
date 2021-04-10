@@ -10,20 +10,15 @@ let cors = require('cors');
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 
-
 // middlewares
 app.use(cors());
 app.use(cookieParser())
 app.use(helmet());
- 
 
-app.use(express.static(path.join(__dirname, "build")));
-
-app.get('/',function(req,res)
-{
-res.sendFile(path.join(__dirname,'build','index.html'))
-})
-
+// app.get('/',function(req,res)
+// {
+// res.sendFile(path.join(__dirname,'build','index.html'))
+// })
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin"); 
@@ -38,7 +33,7 @@ const connectdb =require('./config/db');
 
 connectdb();
 
-  app.use('/',
+  app.use('/api',
   (req,res,next)=>{
     console.log("I am going to all routes from here ");next();
   },routes);
