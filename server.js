@@ -33,7 +33,7 @@ const connectdb =require('./config/db');
 
 connectdb();
 
-  app.use('/api',
+  app.use('/',
   (req,res,next)=>{
     console.log("I am going to all routes from here ");next();
   },routes);
