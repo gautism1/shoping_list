@@ -1,7 +1,5 @@
 const routes = require('express').Router({ mergeParams: true });
-const shopList = require('./sellerlist.js');
-  
-// let jwt = require('jsonwebtoken');
+const shopList = require('./sellerlist');
  
 routes.use('/seller', shopList)
  
